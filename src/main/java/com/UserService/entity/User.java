@@ -1,9 +1,10 @@
 package com.UserService.entity;
+import com.UserService.entity.Rating.Rating;
 import lombok.*;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Getter
@@ -16,7 +17,7 @@ import javax.persistence.Table;
 public class User {
 
     @Id
-    @Column(name="Id" ,length = 10)
+    @Column(name="Id")
     private String userid;
 
     @Column(name="NAME")
@@ -27,5 +28,8 @@ public class User {
 
     @Column(name="ABOUT")
     private String about;
+
+    @Transient
+    private List<Rating> ratings = new ArrayList<>();
 
 }
